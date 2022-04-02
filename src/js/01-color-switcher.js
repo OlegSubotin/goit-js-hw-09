@@ -1,6 +1,6 @@
 const startBtn = document.querySelector('button[data-start]');
 const stopBtn = document.querySelector('button[data-stop]');
-const bodyRef = document.querySelector('body');
+const bodyEl = document.querySelector('body');
 
 let timerId = null;
 const INTERVAL_DURATION = 1000;
@@ -11,7 +11,7 @@ startBtn.addEventListener('click', onStartBtnClick);
 stopBtn.addEventListener('click', onStopBtnClick);
 
 function updateBodyColor() {
-    bodyRef.style.backgroundColor = getRandomHexColor();
+    bodyEl.style.backgroundColor = getRandomHexColor();
 }
 
 function getRandomHexColor() {
