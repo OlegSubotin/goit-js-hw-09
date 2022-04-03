@@ -58,8 +58,11 @@ class Timer  {
         this.isActive = false;
         this.timerId = null;
         buttonEl.disabled = true;
+        
     }
     timerStart() {
+        inputEl.disabled = true;
+        buttonEl.classList.add('disabled');
         if (this.isActive) {
             return;
         }

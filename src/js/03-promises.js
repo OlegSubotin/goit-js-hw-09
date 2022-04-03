@@ -1,20 +1,22 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const formEl = document.querySelector('.form');
-const delayEl = document.querySelector("input[name='delay']");
-const stepEl = document.querySelector("input[name='step']");
-const amountEl = document.querySelector("input[name='amount']");
 
 formEl.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(evt){
   evt.preventDefault();
  
-  let delay = parseInt(delayEl.value);
-  let step = parseInt(stepEl.value);
-  let amount = parseInt(amountEl.value);
+  let delay = parseInt(evt.currentTarget.delay.value);
+  let step = parseInt(evt.currentTarget.step.value);
+  let amount = parseInt(evt.currentTarget.amount.value);
   
-  promise({delay, step, amount});
+  promise({ delay, step, amount });
+  
+    evt.target.delay.value = '';
+    evt.target.step.value = '';
+    evt.target.amount.value = '';
+   
 }
 
 function createPromise(position, delay) {
